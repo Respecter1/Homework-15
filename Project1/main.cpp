@@ -1,5 +1,5 @@
 /*
-1. Опишіть клас JetPlane (Реактивний літак), успадковуючи його від двох базових класів – Rocket (Ракета) та Airplane (Літак).
+1. РћРїРёС€С–С‚СЊ РєР»Р°СЃ JetPlane (Р РµР°РєС‚РёРІРЅРёР№ Р»С–С‚Р°Рє), СѓСЃРїР°РґРєРѕРІСѓСЋС‡Рё Р№РѕРіРѕ РІС–Рґ РґРІРѕС… Р±Р°Р·РѕРІРёС… РєР»Р°СЃС–РІ вЂ“ Rocket (Р Р°РєРµС‚Р°) С‚Р° Airplane (Р›С–С‚Р°Рє).
 */
 
 #include <iostream>
@@ -11,11 +11,11 @@ public:
 
     virtual void Show_Traction() const { std::cout << "Thrust of the rocket: " << traction_ << " kH.\n"; }
 
-protected://дозволяє мені захищати методи та поля від зовнішнього втручання, та дозволяючи нащадкам використовувати ці методи .
+protected://РґРѕР·РІРѕР»СЏС” РјРµРЅС– Р·Р°С…РёС‰Р°С‚Рё РјРµС‚РѕРґРё С‚Р° РїРѕР»СЏ РІС–Рґ Р·РѕРІРЅС–С€РЅСЊРѕРіРѕ РІС‚СЂСѓС‡Р°РЅРЅСЏ, С‚Р° РґРѕР·РІРѕР»СЏСЋС‡Рё РЅР°С‰Р°РґРєР°Рј РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё С†С– РјРµС‚РѕРґРё .
     int GetTraction() const { return traction_; }
 
 private:
-    int traction_; // Тяга ракети
+    int traction_; // РўСЏРіР° СЂР°РєРµС‚Рё
 };
 
 class Airplane {
@@ -29,7 +29,7 @@ protected:
     int GetWingSize() const { return wing_; }
 
 private:
-    int wing_; // розмір крила
+    int wing_; // СЂРѕР·РјС–СЂ РєСЂРёР»Р°
 };
 
 class JetPlane : public Rocket, public Airplane {
@@ -38,9 +38,9 @@ public:
     JetPlane(int speed, int wing, int traction)
         : Rocket(traction), Airplane(wing), speed_(speed) {}
 
-    //тут деструктор не потрібен на мою думку
+    //С‚СѓС‚ РґРµСЃС‚СЂСѓРєС‚РѕСЂ РЅРµ РїРѕС‚СЂС–Р±РµРЅ РЅР° РјРѕСЋ РґСѓРјРєСѓ
 
-    virtual void Show_Traction() const override //override для вказівки, що метод класу - є нащадком перевизначає віртуальний метод базового класу.
+    virtual void Show_Traction() const override //override РґР»СЏ РІРєР°Р·С–РІРєРё, С‰Рѕ РјРµС‚РѕРґ РєР»Р°СЃСѓ - С” РЅР°С‰Р°РґРєРѕРј РїРµСЂРµРІРёР·РЅР°С‡Р°С” РІС–СЂС‚СѓР°Р»СЊРЅРёР№ РјРµС‚РѕРґ Р±Р°Р·РѕРІРѕРіРѕ РєР»Р°СЃСѓ.
     {
         std::cout << "A jet plane has a thrust: " << GetTraction() << " kN.\n";
     }
@@ -53,7 +53,7 @@ public:
     void Show_Speed() const { std::cout << "The speed of the plane: " << speed_ << " km/h.\n"; }
 
 private:
-    int speed_; // швидкість літака
+    int speed_; // С€РІРёРґРєС–СЃС‚СЊ Р»С–С‚Р°РєР°
 };
 
 int main() {
