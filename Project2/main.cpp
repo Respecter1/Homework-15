@@ -1,5 +1,5 @@
 /*
-	2. Виконайте від класу JetPlane, оголошеного в першій вправі, новий клас Boeing747.
+	2. Р’РёРєРѕРЅР°Р№С‚Рµ РІС–Рґ РєР»Р°СЃСѓ JetPlane, РѕРіРѕР»РѕС€РµРЅРѕРіРѕ РІ РїРµСЂС€С–Р№ РІРїСЂР°РІС–, РЅРѕРІРёР№ РєР»Р°СЃ Boeing747.
 */
 
 #include <iostream>
@@ -12,11 +12,11 @@ public:
 
 	virtual void Show_Traction() const { std::cout << "Thrust of the rocket: " << traction_ << " kH.\n"; }
 
-protected://дозволяє мені захищати методи та поля від зовнішнього втручання, та дозволяючи нащадкам використовувати ці методи .
+protected://РґРѕР·РІРѕР»СЏС” РјРµРЅС– Р·Р°С…РёС‰Р°С‚Рё РјРµС‚РѕРґРё С‚Р° РїРѕР»СЏ РІС–Рґ Р·РѕРІРЅС–С€РЅСЊРѕРіРѕ РІС‚СЂСѓС‡Р°РЅРЅСЏ, С‚Р° РґРѕР·РІРѕР»СЏСЋС‡Рё РЅР°С‰Р°РґРєР°Рј РІРёРєРѕСЂРёСЃС‚РѕРІСѓРІР°С‚Рё С†С– РјРµС‚РѕРґРё .
 	int GetTraction() const { return traction_; }
 
 private:
-	int traction_; // Тяга ракети
+	int traction_; // РўСЏРіР° СЂР°РєРµС‚Рё
 };
 
 class Airplane {
@@ -30,7 +30,7 @@ protected:
 	int GetWingSize() const { return wing_; }
 
 private:
-	int wing_; // розмір крила
+	int wing_; // СЂРѕР·РјС–СЂ РєСЂРёР»Р°
 };
 
 class JetPlane : public Rocket, public Airplane {
@@ -38,9 +38,9 @@ public:
 	JetPlane(int speed, int wing, int traction)
 		: Rocket(traction), Airplane(wing), speed_(speed) {}
 
-	//тут деструктор не потрібен на мою думку
+	//С‚СѓС‚ РґРµСЃС‚СЂСѓРєС‚РѕСЂ РЅРµ РїРѕС‚СЂС–Р±РµРЅ РЅР° РјРѕСЋ РґСѓРјРєСѓ
 
-	virtual void Show_Traction() const override //override для вказівки, що метод класу - є нащадком перевизначає віртуальний метод базового класу.
+	virtual void Show_Traction() const override //override РґР»СЏ РІРєР°Р·С–РІРєРё, С‰Рѕ РјРµС‚РѕРґ РєР»Р°СЃСѓ - С” РЅР°С‰Р°РґРєРѕРј РїРµСЂРµРІРёР·РЅР°С‡Р°С” РІС–СЂС‚СѓР°Р»СЊРЅРёР№ РјРµС‚РѕРґ Р±Р°Р·РѕРІРѕРіРѕ РєР»Р°СЃСѓ.
 	{
 		std::cout << "A jet plane has a thrust: " << GetTraction() << " kN.\n";
 	}
@@ -55,7 +55,7 @@ public:
 protected:
 	int GetSpeed() const { return speed_; }
 private:
-	int speed_; // швидкість літака
+	int speed_; // С€РІРёРґРєС–СЃС‚СЊ Р»С–С‚Р°РєР°
 };
 
 class Boeing747
@@ -64,8 +64,8 @@ class Boeing747
 public:
 	Boeing747(int speed, int wing, int traction, const char* name)
 		: JetPlane(traction, wing, speed), name_(nullptr), size_(0)
-		//визначає довжину переданої стрічки за допомогою функції std::strlen(name) і виділяє достатньо пам’яті
-		//  для її зберігання.Вам не потрібно вказувати довжину стрічки вручну; конструктор обробляє це за вас.
+		//РІРёР·РЅР°С‡Р°С” РґРѕРІР¶РёРЅСѓ РїРµСЂРµРґР°РЅРѕС— СЃС‚СЂС–С‡РєРё Р·Р° РґРѕРїРѕРјРѕРіРѕСЋ С„СѓРЅРєС†С–С— std::strlen(name) С– РІРёРґС–Р»СЏС” РґРѕСЃС‚Р°С‚РЅСЊРѕ РїР°РјвЂ™СЏС‚С–
+		//  РґР»СЏ С—С— Р·Р±РµСЂС–РіР°РЅРЅСЏ.Р’Р°Рј РЅРµ РїРѕС‚СЂС–Р±РЅРѕ РІРєР°Р·СѓРІР°С‚Рё РґРѕРІР¶РёРЅСѓ СЃС‚СЂС–С‡РєРё РІСЂСѓС‡РЅСѓ; РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РѕР±СЂРѕР±Р»СЏС” С†Рµ Р·Р° РІР°СЃ.
 	{
 		if (name != nullptr && std::strlen(name) != 0)
 		{
@@ -83,7 +83,7 @@ public:
 		size_ = 0;
 	}
 
-	virtual void Show_Traction() const override //override для вказівки, що метод класу - є нащадком перевизначає віртуальний метод базового класу.
+	virtual void Show_Traction() const override //override РґР»СЏ РІРєР°Р·С–РІРєРё, С‰Рѕ РјРµС‚РѕРґ РєР»Р°СЃСѓ - С” РЅР°С‰Р°РґРєРѕРј РїРµСЂРµРІРёР·РЅР°С‡Р°С” РІС–СЂС‚СѓР°Р»СЊРЅРёР№ РјРµС‚РѕРґ Р±Р°Р·РѕРІРѕРіРѕ РєР»Р°СЃСѓ.
 	{
 		std::cout << "A jet plane has a thrust: " << GetTraction() << " kN.\n";
 	}
